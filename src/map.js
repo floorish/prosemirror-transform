@@ -113,7 +113,7 @@ export class StepMap {
     for (let i = 0, diff = 0; i < this.ranges.length; i += 3) {
       let start = this.ranges[i], oldStart = start - (this.inverted ? diff : 0), newStart = start + (this.inverted ? 0 : diff)
       let oldSize = this.ranges[i + oldIndex], newSize = this.ranges[i + newIndex]
-      f(oldStart, oldStart + oldSize, newStart, newStart + newSize)
+      f(oldStart + diff, oldStart + oldSize + diff, newStart, newStart + newSize)
       diff += newSize - oldSize
     }
   }
